@@ -11,12 +11,7 @@ export function findWords(board, trie) {
         if (dr === 0 && dc === 0) continue;
         const newRow = row + dr;
         const newCol = col + dc;
-        if (
-          newRow >= 0 &&
-          newRow < numRows &&
-          newCol >= 0 &&
-          newCol < numCols
-        ) {
+        if (newRow >= 0 && newRow < numRows && newCol >= 0 && newCol < numCols) {
           neighbors.push([newRow, newCol]);
         }
       }
@@ -53,7 +48,7 @@ export function findWords(board, trie) {
 
   for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numCols; col++) {
-      dfs(row, col, trie, new Set(), "", []);
+      dfs(row, col, trie, new Set(), '', []);
     }
   }
 

@@ -1,29 +1,129 @@
 body {
-    font-family: sans-serif;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 50px);
-    gap: 5px;
-    margin: 20px auto;
-  }
-  
-  .grid input {
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 1.5em;
-    text-transform: uppercase;
-  }
-  
-  #wordList {
-    max-width: 300px;
-    margin: 0 auto;
-    text-align: left;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  gap: 5px;
+  margin: 20px auto;
+}
+
+.grid input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+#wordList {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  gap: 10px;
+  margin: 20px auto;
+}
+
+/* Changing saturation highlight to show direction */
+.highlight-step-0 {
+  background-color: hsl(45, 100%, 60%);
+}
+.highlight-step-1 {
+  background-color: hsl(45, 85%, 65%);
+}
+.highlight-step-2 {
+  background-color: hsl(45, 70%, 70%);
+}
+.highlight-step-3 {
+  background-color: hsl(45, 55%, 75%);
+}
+.highlight-step-4 {
+  background-color: hsl(45, 40%, 80%);
+}
+.highlight-step-5 {
+  background-color: hsl(45, 25%, 85%);
+}
+.highlight-step-6 {
+  background-color: hsl(45, 15%, 90%);
+}
+.highlight-step-n {
+  background-color: #eee;
+}
+
+#results {
+  max-width: 80vw;
+  min-width: 400px;
+  min-height: 80px;
+  margin: 10px auto 60px; /* 🔼 more bottom spacing */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+#wordList {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  list-style: none;
+}
+
+#wordList li {
+  background: #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#wordList li:hover {
+  background: #ffd54f;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #ffd54f; /* Golden yellow */
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #ffca28; /* Slightly deeper gold */
+  transform: translateY(-1px);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* full vertical space */
+  width: 100%;
+}
