@@ -4,7 +4,6 @@
 const fs = require('fs');
 const path = require('path');
 
-// Node for the trie we need to build
 class TrieNode {
   constructor() {
     this.children = {};
@@ -29,7 +28,7 @@ function buildTrieFromDictionary(dictionaryPath) {
     .readFileSync(dictionaryPath, 'utf-8')
     .split('\n')
     .map((w) => w.trim().toLowerCase())
-    .filter((w) => w.length > 1); // Filter out single-letter words
+    .filter((w) => w.length > 1);
 
   for (const word of words) {
     insertWord(root, word);
@@ -38,17 +37,15 @@ function buildTrieFromDictionary(dictionaryPath) {
   return root;
 }
 
-function buildAndSaveTrie(dictionaryPath, outputPath) {
+function buildAndSaveTrieAsJS(dictionaryPath, outputPath) {
   const trie = buildTrieFromDictionary(dictionaryPath);
-  fs.writeFileSync(outputPath, JSON.stringify(trie, null, 2));
-  console.log(`Trie saved to ${outputPath}`);
+  const js = `export const TRIE = ${JSON.stringify(trie)};\n`;
+  fs.writeFileSync(outputPath, js);
+  console.log(`Compressed trie saved to ${outputPath}`);
 }
 
-// Build tree if someone calls this thing siwth node
 if (require.main === module) {
   const dictPath = path.resolve(__dirname, 'resources', 'dictionary.txt');
-  const outPath = path.resolve(__dirname, 'trie.json');
-  buildAndSaveTrie(dictPath, outPath);
+  const outPath = path.resolve(__dirname, 'resources', 'trie.js');
+  buildAndSaveTrieAsJS(dictPath, outPath);
 }
-
-module.exports = { buildAndSaveTrie };

@@ -1,10 +1,9 @@
 import { findWords } from './solver.js';
+import { TRIE } from './resources/trie.js';
+const trie = TRIE;
 
-let trie = null;
-
-async function loadTrie() {
-  const res = await fetch('./trie.json');
-  trie = await res.json();
+function isBoardValid(board) {
+  return board.every((letter) => /^[a-z]$/.test(letter));
 }
 
 function setupBoard() {
@@ -81,9 +80,20 @@ document.getElementById('clearBtn').addEventListener('click', () => {
 
 document.getElementById('solveBtn').addEventListener('click', () => {
   const board = getBoardLetters();
+
+  if (!isBoardValid(board)) {
+    alert('Please fill in all 16 letters (A–Z only).');
+    return;
+  }
+
   const words = findWords(board, trie);
   showResults(words);
 });
 
-loadTrie();
 setupBoard();
+document.addEventListener('DOMContentLoaded', () => {
+  // Optional: short delay for dramatic effect
+  setTimeout(() => {
+    document.getElementById('loading-screen').style.display = 'none';
+  }, 200); // or 500ms if you want it more noticeable
+});

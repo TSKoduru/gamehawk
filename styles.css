@@ -63,7 +63,7 @@ body {
   max-width: 80vw;
   min-width: 400px;
   min-height: 80px;
-  margin: 10px auto 60px; /* 🔼 more bottom spacing */
+  margin: 10px auto 60px; 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -100,7 +100,7 @@ body {
 }
 
 button {
-  background-color: #ffd54f; /* Golden yellow */
+  background-color: #ffd54f; 
   color: #333;
   border: none;
   padding: 10px 20px;
@@ -115,7 +115,7 @@ button {
 }
 
 button:hover {
-  background-color: #ffca28; /* Slightly deeper gold */
+  background-color: #ffca28;
   transform: translateY(-1px);
 }
 
@@ -124,6 +124,26 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* full vertical space */
+  min-height: 100vh; 
   width: 100%;
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.loader-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #444;
 }
