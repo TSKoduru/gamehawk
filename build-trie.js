@@ -47,7 +47,7 @@ function buildAndSaveTrie(dictionaryPath, outputPath) {
 // Build tree if someone calls this thing siwth node
 if (require.main === module) {
   const dictPath = path.resolve(__dirname, 'resources', 'dictionary.txt');
-  const outPath = path.resolve(__dirname, 'resources', 'trie.json');
+  const outPath = path.resolve(__dirname, 'trie.json');
   buildAndSaveTrie(dictPath, outPath);
 }
 

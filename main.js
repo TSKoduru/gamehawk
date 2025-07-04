@@ -3,7 +3,7 @@ import { findWords } from './solver.js';
 let trie = null;
 
 async function loadTrie() {
-  const res = await fetch('resources/trie.json');
+  const res = await fetch('./trie.json');
   trie = await res.json();
 }
 
